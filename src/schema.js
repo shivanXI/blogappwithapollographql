@@ -10,9 +10,11 @@ const typeDefs = `
   }
   type Query {
     blogs: [Blog]!
-    searchBlogs(author: String!): [Blog] 
-    createBlog(title: String!, description: String!, summary: String!, author: String!): [Blog]!
+    searchBlogs(author: String!): [Blog]  
   }
+  type Mutation {
+    createBlog(title: String!, description: String!, summary: String!, author: String!): [Blog]!
+   }
 
 `;
 
@@ -32,6 +34,8 @@ const resolvers = {
         const { filteredBlogs } = await dataSources.blogAPI.getBlogByAuthor({ author: enteredAuthor})
         return filteredBlogs;
     },
+  },
+  Mutation: {
     createBlog: async (_, { intitle, indescription, insummary, inauthor },{ dataSources }) => {
         const { afterInsertion } = await dataSources.blogAPI.createNewBlog({ title:intitle, description:indescription, summary:insummary, author:inauthor })
         return afterInsertion;
