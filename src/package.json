@@ -1,0 +1,21 @@
+{
+  "name": "al_serverless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-lambda": "^2.6.7",
+    "cors": "^2.8.5",
+    "graphql": "^14.4.2",
+    "graphql-tools": "^4.0.5",
+    "lodash": "^4.17.11",
+    "micro": "^9.3.4",
+    "micro-cors": "^0.1.1"
+  }
+}
