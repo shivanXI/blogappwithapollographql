@@ -34,13 +34,9 @@ class blogAPI {
     async getBlogByAuthor({ author }){
         return new Promise(async (resolve, reject) => {
             var allowedBlogs = []
-            allowedBlogs.push(blogs.map(function(value) {
-                if(value.author == author){
-                    return value;
-                }else{
-                    return {};
-                }
-            }))
+            allowedBlogs = blogs.filter(function(value) {
+                    return value.author == author;
+            })
           resolve(allowedBlogs);
         });
     }
